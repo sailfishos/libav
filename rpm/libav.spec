@@ -5,6 +5,7 @@ Summary:        Libav video encoding and decoding library
 Group:          Productivity/Multimedia/Video/Editors and Convertors
 Url:            http://libav.org
 Source:         %{name}-%{version}.tar.gz
+Patch0:         0001-Fix-linking-errors-when-VC1-parser-is-enabled-and-VC.patch
 License:        LGPL-2.0+
 
 %description
@@ -29,6 +30,7 @@ Libav is a complete, cross-platform solution to decode, encode, record, convert 
 
 %prep
 %setup -q -n %{name}-%{version}/%{name}
+%patch0 -p1
 
 ./configure --prefix=/usr --libdir=%{_libdir} --disable-debug --enable-shared --enable-pic \
   --disable-static --enable-sram --disable-yasm \
