@@ -7,6 +7,9 @@ Url:            http://libav.org
 Source:         %{name}-%{version}.tar.gz
 Patch0:         0001-Fix-linking-errors-when-VC1-parser-is-enabled-and-VC.patch
 License:        LGPL-2.0+
+%ifarch i486
+BuildRequires:  yasm
+%endif
 
 %description
 Libav is a complete, cross-platform solution to decode, encode, record, convert and stream audio and video.
@@ -33,7 +36,7 @@ Libav is a complete, cross-platform solution to decode, encode, record, convert 
 %patch0 -p1
 
 ./configure --prefix=/usr --libdir=%{_libdir} --disable-debug --enable-shared --enable-pic \
-  --disable-static --enable-sram --disable-yasm \
+  --disable-static --enable-sram \
   --disable-doc --disable-muxers --disable-demuxers --disable-protocols --disable-indevs \
   --disable-outdevs --disable-avdevice --disable-network \
   --disable-lsp --disable-hwaccels --disable-encoders \
