@@ -36,11 +36,9 @@ Libav is a complete, cross-platform solution to decode, encode, record, convert 
 %patch0 -p1
 
 ./configure --prefix=/usr --libdir=%{_libdir} --disable-debug --enable-shared --enable-pic \
-  --disable-static --enable-sram \
-  --disable-doc --disable-muxers --disable-demuxers --disable-protocols --disable-indevs \
-  --disable-outdevs --disable-avdevice --disable-network \
-  --disable-lsp --disable-hwaccels --disable-encoders \
-  --disable-decoders --disable-bsfs \
+  --disable-static --disable-doc --disable-muxers --disable-demuxers --disable-protocols \
+  --disable-indevs --disable-outdevs --disable-avdevice --disable-network \
+  --disable-lsp --disable-hwaccels --disable-encoders --disable-decoders --disable-bsfs \
   --enable-protocol=file --enable-fft --enable-decoder=aac --enable-decoder=aac_latm \
   --enable-decoder=vorbis --enable-decoder=theora --enable-decoder=flac \
   --enable-encoder=aac --enable-demuxer=aac --enable-demuxer=avi --enable-demuxer=flac \
