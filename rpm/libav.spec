@@ -8,7 +8,6 @@ Source:         %{name}-%{version}.tar.gz
 Patch0:         0001-Fix-linking-errors-when-VC1-parser-is-enabled-and-VC.patch
 License:        LGPL-2.0+
 BuildRequires:  pkgconfig(speex)
-BuildRequires:  pkgconfig(opus)
 %ifarch i486
 BuildRequires:  yasm
 %endif
@@ -61,7 +60,7 @@ Libav is a complete, cross-platform solution to decode, encode, record, convert 
   --enable-demuxer=pcm_s32be --enable-demuxer=pcm_s32le --enable-demuxer=pcm_s8 \
   --enable-demuxer=pcm_u16be --enable-demuxer=pcm_u16le --enable-demuxer=pcm_u24be \
   --enable-demuxer=pcm_u24le \
-  --enable-libspeex --enable-libopus
+  --enable-libspeex --enable-decoder=opus
 
 %build
 make %{?jobs:-j%jobs}
