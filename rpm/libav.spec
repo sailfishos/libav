@@ -46,7 +46,7 @@ Libav is a complete, cross-platform solution to decode, encode, record, convert 
   --enable-demuxer=h264 --enable-demuxer=m4v --enable-demuxer=mov --enable-demuxer=ogg \
   --enable-demuxer=mpegts --enable-demuxer=mpegvideo --enable-demuxer=matroska \
   --enable-demuxer=wav --enable-decoder=h264 --enable-decoder=mpeg4 --enable-decoder=mp3 \
-  --enable-demuxer=aiff \
+  --enable-demuxer=aiff --enable-demuxer=flv \
   --enable-decoder=pcm_u8 --enable-decoder=pcm_u32le --enable-decoder=pcm_u32be \
   --enable-decoder=pcm_u24le --enable-decoder=pcm_u24be --enable-decoder=pcm_u16le \
   --enable-decoder=pcm_u16be --enable-decoder=pcm_s8 --enable-decoder=pcm_s32le \
