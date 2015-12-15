@@ -6,7 +6,7 @@ Group:          Productivity/Multimedia/Video/Editors and Convertors
 Url:            http://libav.org
 Source:         %{name}-%{version}.tar.gz
 Patch0:         0001-Fix-linking-errors-when-VC1-parser-is-enabled-and-VC.patch
-License:        LGPL-2.0+
+License:        LGPLv2+
 BuildRequires:  pkgconfig(speex)
 %ifarch i486
 BuildRequires:  yasm
@@ -17,7 +17,6 @@ Libav is a complete, cross-platform solution to decode, encode, record, convert 
 
 %package devel
 Summary:        Development headers and libraries for libav
-Group:          Productivity/Multimedia
 Requires:       %{name} = %{version}
 Requires:       bzip2-devel
 
@@ -26,7 +25,6 @@ Libav is a complete, cross-platform solution to decode, encode, record, convert 
 
 %package tools
 Summary:        Libav tools package
-Group:          Productivity/Multimedia
 Requires:       %{name} = %{version}
 
 %description tools
