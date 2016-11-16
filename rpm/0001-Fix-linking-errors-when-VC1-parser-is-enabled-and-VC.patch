@@ -5,11 +5,37 @@ Subject: [PATCH] Fix linking errors when VC1 parser is enabled and VC1 decoder
  is disabled
 
 ---
+ libavcodec/aarch64/Makefile   | 1 +++
  libavcodec/arm/Makefile       | 3 +++
  libavcodec/arm/h264cmc_neon.S | 2 +-
  libavcodec/x86/Makefile       | 3 +++
  3 files changed, 7 insertions(+), 1 deletion(-)
 
+diff --git a/libavcodec/aarch64/Makefile b/libavcodec/aarch64/Makefile
+index 964428e..b9dce7c 100644
+--- a/libavcodec/aarch64/Makefile
++++ b/libavcodec/aarch64/Makefile
+@@ -10,6 +10,7 @@ OBJS-$(CONFIG_VIDEODSP)                 += aarch64/videodsp_init.o
+ OBJS-$(CONFIG_OPUS_DECODER)             += aarch64/opus_imdct_init.o
+ OBJS-$(CONFIG_RV40_DECODER)             += aarch64/rv40dsp_init_aarch64.o
+ OBJS-$(CONFIG_VC1_DECODER)              += aarch64/vc1dsp_init_aarch64.o
++OBJS-$(CONFIG_VC1_PARSER)               += aarch64/vc1dsp_init_aarch64.o
+ OBJS-$(CONFIG_VORBIS_DECODER)           += aarch64/vorbisdsp_init.o
+ 
+ ARMV8-OBJS-$(CONFIG_VIDEODSP)           += aarch64/videodsp.o
+diff --git a/libavcodec/aarch64/h264cmc_neon.S b/libavcodec/aarch64/h264cmc_neon.S
+index ee7011b..423d275 100644
+--- a/libavcodec/aarch64/h264cmc_neon.S
++++ b/libavcodec/aarch64/h264cmc_neon.S
+@@ -445,7 +445,7 @@ endconst
+         h264_chroma_mc4 avg, rv40
+ #endif
+ 
+-#if CONFIG_VC1_DECODER
++#if defined(CONFIG_VC1_DECODER) || defined(CONFIG_VC1_PARSER)
+         h264_chroma_mc8 put, vc1
+         h264_chroma_mc8 avg, vc1
+         h264_chroma_mc4 put, vc1
 diff --git a/libavcodec/arm/Makefile b/libavcodec/arm/Makefile
 index 6cbb0b9..765be85 100644
 --- a/libavcodec/arm/Makefile
