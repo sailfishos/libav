@@ -59,7 +59,7 @@ Libav is a complete, cross-platform solution to decode, encode, record, convert 
   --enable-demuxer=pcm_s16le --enable-demuxer=pcm_s24be --enable-demuxer=pcm_s24le \
   --enable-demuxer=pcm_s32be --enable-demuxer=pcm_s32le --enable-demuxer=pcm_s8 \
   --enable-demuxer=pcm_u16be --enable-demuxer=pcm_u16le --enable-demuxer=pcm_u24be \
-  --enable-demuxer=pcm_u24le --enable-decoder=mjpeg \
+  --enable-demuxer=pcm_u24le --enable-decoder=mjpeg --enable-decoder=vp8 \
   --enable-libspeex --enable-decoder=opus
 
 
