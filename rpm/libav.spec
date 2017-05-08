@@ -34,6 +34,8 @@ Libav is a complete, cross-platform solution to decode, encode, record, convert 
 %setup -q -n %{name}-%{version}/%{name}
 %patch0 -p1
 
+%build
+
 ./configure --prefix=/usr --libdir=%{_libdir} --disable-debug --enable-shared --enable-pic \
   --disable-static --disable-doc --disable-muxers --disable-demuxers --disable-protocols \
   --disable-indevs --disable-outdevs --disable-avdevice --disable-network \
@@ -60,7 +62,7 @@ Libav is a complete, cross-platform solution to decode, encode, record, convert 
   --enable-demuxer=pcm_u24le --enable-decoder=mjpeg \
   --enable-libspeex --enable-decoder=opus
 
-%build
+
 make %{?jobs:-j%jobs}
 
 %install
