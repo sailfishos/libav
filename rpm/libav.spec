@@ -1,6 +1,6 @@
 Name:           libav
-Version:        11.8
-Release:        0.0
+Version:        12.2
+Release:        1
 Summary:        Libav video encoding and decoding library
 Group:          Productivity/Multimedia/Video/Editors and Convertors
 Url:            http://libav.org
@@ -59,7 +59,7 @@ Libav is a complete, cross-platform solution to decode, encode, record, convert 
   --enable-demuxer=pcm_s16le --enable-demuxer=pcm_s24be --enable-demuxer=pcm_s24le \
   --enable-demuxer=pcm_s32be --enable-demuxer=pcm_s32le --enable-demuxer=pcm_s8 \
   --enable-demuxer=pcm_u16be --enable-demuxer=pcm_u16le --enable-demuxer=pcm_u24be \
-  --enable-demuxer=pcm_u24le --enable-decoder=mjpeg --enable-decoder=vp8 \
+  --enable-demuxer=pcm_u24le --enable-decoder=mjpeg --enable-decoder=vp8 --enable-decoder=vp9 \
   --enable-libspeex --enable-decoder=opus
 
 
