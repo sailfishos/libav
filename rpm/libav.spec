@@ -8,7 +8,7 @@ Source:         %{name}-%{version}.tar.gz
 Patch0:         0001-Fix-linking-errors-when-VC1-parser-is-enabled-and-VC.patch
 License:        LGPLv2+
 BuildRequires:  pkgconfig(speex)
-%ifarch i486
+%ifarch i486 x86_64
 BuildRequires:  yasm
 %endif
 
