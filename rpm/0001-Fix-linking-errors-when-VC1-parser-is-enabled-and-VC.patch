@@ -15,14 +15,14 @@ diff --git a/libavcodec/aarch64/Makefile b/libavcodec/aarch64/Makefile
 index 964428e..b9dce7c 100644
 --- a/libavcodec/aarch64/Makefile
 +++ b/libavcodec/aarch64/Makefile
-@@ -10,6 +10,7 @@ OBJS-$(CONFIG_VIDEODSP)                 += aarch64/videodsp_init.o
- OBJS-$(CONFIG_OPUS_DECODER)             += aarch64/opus_imdct_init.o
+@@ -16,6 +16,7 @@ OBJS-$(CONFIG_VIDEODSP)                 += aarch64/videodsp_init.o
+ OBJS-$(CONFIG_DCA_DECODER)              += aarch64/dcadsp_init.o
  OBJS-$(CONFIG_RV40_DECODER)             += aarch64/rv40dsp_init_aarch64.o
  OBJS-$(CONFIG_VC1_DECODER)              += aarch64/vc1dsp_init_aarch64.o
 +OBJS-$(CONFIG_VC1_PARSER)               += aarch64/vc1dsp_init_aarch64.o
  OBJS-$(CONFIG_VORBIS_DECODER)           += aarch64/vorbisdsp_init.o
  
- ARMV8-OBJS-$(CONFIG_VIDEODSP)           += aarch64/videodsp.o
+ # ARMv8 optimizations
 diff --git a/libavcodec/aarch64/h264cmc_neon.S b/libavcodec/aarch64/h264cmc_neon.S
 index ee7011b..423d275 100644
 --- a/libavcodec/aarch64/h264cmc_neon.S
@@ -36,27 +36,6 @@ index ee7011b..423d275 100644
          h264_chroma_mc8 put, vc1
          h264_chroma_mc8 avg, vc1
          h264_chroma_mc4 put, vc1
-diff --git a/libavcodec/arm/Makefile b/libavcodec/arm/Makefile
-index 6cbb0b9..765be85 100644
---- a/libavcodec/arm/Makefile
-+++ b/libavcodec/arm/Makefile
-@@ -37,6 +37,7 @@ OBJS-$(CONFIG_FLAC_DECODER)            += arm/flacdsp_init_arm.o        \
-                                           arm/flacdsp_arm.o
- OBJS-$(CONFIG_MLP_DECODER)             += arm/mlpdsp_init_arm.o
- OBJS-$(CONFIG_VC1_DECODER)             += arm/vc1dsp_init_arm.o
-+OBJS-$(CONFIG_VC1_PARSER)              += arm/vc1dsp_init_arm.o
- OBJS-$(CONFIG_VORBIS_DECODER)          += arm/vorbisdsp_init_arm.o
- OBJS-$(CONFIG_VP6_DECODER)             += arm/vp6dsp_init_arm.o
- OBJS-$(CONFIG_VP7_DECODER)             += arm/vp8dsp_init_arm.o
-@@ -136,6 +137,8 @@ NEON-OBJS-$(CONFIG_RV40_DECODER)       += arm/rv34dsp_neon.o            \
-                                           arm/rv40dsp_neon.o
- NEON-OBJS-$(CONFIG_VC1_DECODER)        += arm/vc1dsp_init_neon.o        \
-                                           arm/vc1dsp_neon.o
-+NEON-OBJS-$(CONFIG_VC1_PARSER)         += arm/vc1dsp_init_neon.o        \
-+                                          arm/vc1dsp_neon.o
- NEON-OBJS-$(CONFIG_VORBIS_DECODER)     += arm/vorbisdsp_neon.o
- NEON-OBJS-$(CONFIG_VP6_DECODER)        += arm/vp6dsp_neon.o
- NEON-OBJS-$(CONFIG_VP7_DECODER)        += arm/vp8dsp_init_neon.o        \
 diff --git a/libavcodec/arm/h264cmc_neon.S b/libavcodec/arm/h264cmc_neon.S
 index ee7011b..423d275 100644
 --- a/libavcodec/arm/h264cmc_neon.S
@@ -70,27 +49,6 @@ index ee7011b..423d275 100644
          h264_chroma_mc8 put, vc1
          h264_chroma_mc8 avg, vc1
          h264_chroma_mc4 put, vc1
-diff --git a/libavcodec/x86/Makefile b/libavcodec/x86/Makefile
-index d06c5a1..c80da6d 100644
---- a/libavcodec/x86/Makefile
-+++ b/libavcodec/x86/Makefile
-@@ -48,6 +48,8 @@ OBJS-$(CONFIG_RV40_DECODER)            += x86/rv34dsp_init.o            \
- OBJS-$(CONFIG_SVQ1_ENCODER)            += x86/svq1enc.o
- OBJS-$(CONFIG_TRUEHD_DECODER)          += x86/mlpdsp.o
- OBJS-$(CONFIG_VC1_DECODER)             += x86/vc1dsp_init.o
-+OBJS-$(CONFIG_VC1_PARSER)              += x86/vc1dsp_init.o
-+OBJS-$(CONFIG_VC1_PARSER)              += x86/vc1dsp.o
- OBJS-$(CONFIG_VORBIS_DECODER)          += x86/vorbisdsp_init.o
- OBJS-$(CONFIG_VP6_DECODER)             += x86/vp6dsp_init.o
- OBJS-$(CONFIG_VP7_DECODER)             += x86/vp8dsp_init.o
-@@ -69,6 +71,7 @@ MMX-OBJS-$(CONFIG_QPELDSP)             += x86/fpel_mmx.o
- MMX-OBJS-$(CONFIG_MPEG4_DECODER)       += x86/idct_mmx_xvid.o           \
-                                           x86/idct_sse2_xvid.o
- MMX-OBJS-$(CONFIG_VC1_DECODER)         += x86/vc1dsp_mmx.o
-+MMX-OBJS-$(CONFIG_VC1_PARSER)          += x86/vc1dsp_mmx.o
- 
- 
- # YASM optimizations
 -- 
 2.1.4
 
